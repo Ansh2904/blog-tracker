@@ -23,12 +23,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('Connected to MongoDB'));
 
-// JWT secret
-jwt.sign(
-  { id: user._id, username: user.username, role: user.role },
-  process.env.JWT_SECRET,
-  { expiresIn: '24h' }
-);
+
 
 
 // ===== SCHEMAS =====

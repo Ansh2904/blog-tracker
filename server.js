@@ -1,10 +1,12 @@
 // server.js
 const express = require('express');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 require('dotenv').config();
+
+
 const app = express();
 
 // Middleware
@@ -23,12 +25,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('Connected to MongoDB'));
 
-// JWT secret
-jwt.sign(
-  { id: user._id, username: user.username, role: user.role },
-  process.env.JWT_SECRET,
-  { expiresIn: '24h' }
-);
+
 
 
 // ===== SCHEMAS =====

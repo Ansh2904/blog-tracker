@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
-
+console.log("Mongo URL:", process.env.MONGO_URL)
 
 
 // ===== SCHEMAS =====
